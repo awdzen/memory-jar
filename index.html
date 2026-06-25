@@ -167,9 +167,134 @@ body::before {
   to { opacity: 1; transform: translateY(0); }
 }
 
+#chicken {
+  position: fixed;
+  bottom: 60px;
+  left: -80px;
+  width: 60px;
+  height: 50px;
+  animation: walk 12s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes walk {
+  0%   { left: -80px; transform: scaleX(1); }
+  45%  { left: 110vw; transform: scaleX(1); }
+  50%  { left: 110vw; transform: scaleX(-1); }
+  95%  { left: -80px; transform: scaleX(-1); }
+  100% { left: -80px; transform: scaleX(1); }
+}
+
+.body {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 40px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.head {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 22px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.eye {
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.beak {
+  position: absolute;
+  top: 10px;
+  right: -6px;
+  width: 8px;
+  height: 5px;
+  background: orange;
+  border-radius: 2px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.comb {
+  position: absolute;
+  top: -8px;
+  right: 4px;
+  width: 8px;
+  height: 10px;
+  background: red;
+  border-radius: 4px 4px 0 0;
+}
+
+.wing {
+  position: absolute;
+  bottom: 18px;
+  left: 14px;
+  width: 20px;
+  height: 14px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  animation: flap 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flap {
+  from { transform: rotate(-10deg); }
+  to   { transform: rotate(10deg); }
+}
+
+.leg {
+  position: absolute;
+  bottom: 0px;
+  width: 4px;
+  height: 12px;
+  background: orange;
+  border-radius: 2px;
+}
+
+.left-leg {
+  left: 18px;
+  animation: stepLeft 0.4s ease-in-out infinite alternate;
+}
+
+.right-leg {
+  left: 28px;
+  animation: stepLeft 0.4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes stepLeft {
+  from { transform: rotate(-15deg); }
+  to   { transform: rotate(15deg); }
+}
+
     </style>
   </head>
   <body>
+
+<div id="chicken">
+  <div class="body"></div>
+  <div class="head">
+    <div class="eye"></div>
+    <div class="beak"></div>
+    <div class="comb"></div>
+  </div>
+  <div class="wing"></div>
+  <div class="leg left-leg"></div>
+  <div class="leg right-leg"></div>
+</div>
 
 <h1 id="title">our memory jar 🫙</h1>
 <p id="subtitle">a small piece of us, one memory at a time</p>
